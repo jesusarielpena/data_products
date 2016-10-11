@@ -1,0 +1,32 @@
+---
+title: "R Markdown and Leaflet"
+author: "Jesus Ariel Pena"
+date: "October 10, 2016"
+output: slidy_presentation
+---
+
+## R Markdown
+
+The following Map shows the citites I have visited during the last year in Mexico.
+
+
+## Map using leaflet
+
+```{r, eval=TRUE}
+library(leaflet)
+
+cities<- data.frame(
+  lat = c(25.6866142,19.4326077,20.6596988,20.5887932,19.0412967,17.0594169,28.6329957,21.161908),
+  lng = c(-100.3161126,-99.133208,-103.3496092,-100.3898881,-98.2061996,-96.7216219,-106.0691004,-86.8515279))
+  visited<- c("monterrey","mexico","guadalajara","queretaro","puebla","oacaca","chihuahua","cancun")
+
+homework <- cities %>%
+  leaflet()%>%
+  addTiles()%>%
+  addMarkers(popup=visited)%>%
+  addCircleMarkers()
+
+homework
+
+
+```
